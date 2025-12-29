@@ -1202,8 +1202,8 @@ static void vac_ov_control_work(struct work_struct *work)
         ln8000_read_reg(info, LN8000_REG_SYS_STS, &sys_st);
 
         if (enable_vac_ov) {
-            /* Check ADC_VIN during the 5sec, if vin higher then 10V, disable to vac_ov */
-            if (info->vbus_uV > 10000000) {
+            /* Check ADC_VIN during the 5sec, if vin higher then 7V, disable to vac_ov */
+            if (info->vbus_uV > 7000000) {
                 enable_vac_ov = 0;
                 ln8000_enable_vac_ov(info, enable_vac_ov);
                 ln_info("vac_ov=disable, vin=%dmV, i=%d, cnt=%d, delay=%d\n", info->vbus_uV/1000, i, cnt, delay);
