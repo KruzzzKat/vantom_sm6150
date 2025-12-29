@@ -5808,7 +5808,7 @@ int smblib_set_prop_pd_active(struct smb_charger *chg,
 	}
 
 	smblib_usb_pd_adapter_allowance_override(chg,
-			!!chg->pd_active ? CONTINUOUS : FORCE_NULL);
+			!!chg->pd_active ? FORCE_5V : FORCE_NULL);
 	smblib_update_usb_type(chg);
 	power_supply_changed(chg->usb_psy);
 	return rc;
